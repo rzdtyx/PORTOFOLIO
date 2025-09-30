@@ -1,0 +1,49 @@
+/* src/index.css */
+
+/* --- BARIS INI YANG WAJIB DITAMBAHKAN --- */
+html {
+  scroll-behavior: smooth;
+}
+/* ------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+/* Latar Belakang Putih Permanen */
+body {
+  font-family: 'Arial', 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #1f2937; 
+  background-color: #f9fafb; 
+  min-height: 100vh;
+}
+
+/* src/index.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+/* Latar Belakang Putih Permanen */
+body {
+  font-family: 'Arial', 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #1f2937; /* Teks gelap */
+  background-color: #f9fafb; /* Latar belakang putih gading */
+  min-height: 100vh;
+}
+
+/* HAPUS SEMUA ATURAN html.dark { ... } */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
