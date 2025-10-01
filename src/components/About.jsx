@@ -28,26 +28,20 @@ const About = () => {
           
           <div className="w-full md:w-2/3 text-left space-y-4 text-lg text-gray-600">
             <p>
-             Halo! Saya Muhammad Reza Aditya Heri, dan saat ini saya adalah Mahasiswa Software Engineering yang sedang menempuh Semester 6 dengan penuh ambisi.
+             Halo! Saya Muhammad Reza Aditya Heri, dan saat ini saya adalah Mahasiswa Binus University yang sedang menempuh Semester 6 dengan penuh ambisi.
 
-Fokus saya di kampus dan proyek pribadi sangat jelas: menciptakan solusi web yang smooth dan terstruktur. Saya tidak hanya mengerjakan tugas, tetapi saya juga obsesif terhadap kinerja, kebersihan kode, dan bagaimana pengalaman pengguna user experience terasa mulus dan bukan hanya sekadar berfungsi.
+Fokus saya di kampus dan proyek pribadi sangatlah jelas, menciptakan solusi web yang smooth dan terstruktur. Saya tidak hanya mengerjakan tugas, tetapi saya juga obsesif terhadap kinerja, kebersihan kode, dan bagaimana pengalaman pengguna user experience terasa mulus dan bukan hanya sekadar berfungsi.
             </p>
             <p>
               dunia pengembangan frontend, khususnya ekosistem React, adalah Tempat favorit saya. Saya senang sekali memecah masalah kompleks menjadi komponen-komponen yang rapi dan modular. Tools seperti Tailwind CSS adalah senjata andalan saya untuk mencapai styling yang cepat dan desain yang responsif.
-
-Saya percaya bahwa tahap kuliah ini adalah waktu terbaik untuk mengimplementasikan teori ke dalam praktik nyata. Oleh karena itu, saya selalu terbuka untuk proyek freelance, bootcamp, atau kolaborasi yang menantang yang dapat memperkaya skill set saya sebagai calon Software Engineer.
             </p>
             <p>
-              Saat ini saya mencari peran yang menantang di mana saya dapat terus belajar dan berkontribusi pada proyek-proyek yang berdampak.
             </p>
           </div>
 
           <div className="w-full md:w-1/3 mt-8 md:mt-0 flex justify-center">
             <img 
-              // 2. GANTI src DENGAN VARIABEL IMPORT
-              src={ProfilePhoto} 
-              alt="Foto Profil Muhammad Reza Aditya Heri" 
-              className="rounded-lg w-64 h-64 object-cover shadow-xl border-2 border-blue-600 transition duration-500 hover:scale-105"
+            
             />
           </div>
         </div>

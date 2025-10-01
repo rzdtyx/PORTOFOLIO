@@ -1,112 +1,155 @@
 // src/components/Skills.jsx
-import React from 'react';
-import { motion } from 'framer-motion'; 
+import React from "react";
+import { motion } from "framer-motion";
+// Menggunakan ikon dari Feather Icons
+import { Code, GitBranch, Zap, ChevronRight } from "react-feather";
 
-// Komponen Progress Bar (sudah dibersihkan dari dark:)
-const SkillProgressBar = ({ name, level, delay }) => {
-  
-  const barVariants = {
-    hidden: { width: 0, opacity: 0 },
-    visible: { 
-      width: `${level}%`, 
-      opacity: 1,
-      transition: { duration: 1.2, delay: delay, ease: "easeInOut" } 
-    }
-  };
+// ====================================================================
+// --- DATA KEAHLIAN ---
+// ====================================================================
+const skillCategories = [
+  {
+    title: "Keahlian Teknis (Hard Skills)",
+    subtitle:
+      "Teknologi inti dan tools yang saya gunakan untuk membangun aplikasi full-stack.",
+    icon: Code,
+    color: "text-blue-600",
+    bgColor: "bg-blue-50",
+    skills: [
+      "React JS / Next.js",
+      "JavaScript",
+      "Tailwind CSS / SCSS",
+      "Github",
+      "MySQL",
+      "Python",
+      "Java",
+      "HTML5",
+      "PHP",
+      "Laravel",
+    ],
+  },
+  {
+    title: "Metodologi & Alat Kerja",
+    subtitle:
+      "Cara kerja, manajemen versi, dan lingkungan pengembangan modern (DevOps).",
+    icon: GitBranch,
+    color: "text-gray-900",
+    bgColor: "bg-gray-100",
+    skills: [
+      "Git & GitHub",
+      "Deployment (Vercel/Netlify)",
+      "Agile/Scrum",
+      "Testing",
+    ],
+  },
+  {
+    title: "Keahlian Lunak (Soft Skills)",
+    subtitle:
+      "Kemampuan non-teknis yang mendukung kolaborasi dan pemecahan masalah.",
+    icon: Zap,
+    color: "text-teal-600",
+    bgColor: "bg-teal-50",
+    skills: [
+      "Pemecahan Masalah",
+      "Komunikasi Efektif",
+      "Kerja Tim",
+      "Pembelajaran Cepat",
+      "Manajemen Waktu",
+    ],
+  },
+];
 
-  return (
-    <div className="mb-6">
-      <div className="flex justify-between items-center mb-1">
-        <span className="text-lg font-medium text-gray-800">{name}</span>
-        <span className="text-sm font-semibold text-blue-600">{level}%</span>
-      </div>
-      
-      {/* Container Bar */}
-      <div className="w-full bg-gray-300 rounded-full h-2.5">
-        <motion.div 
-          className="h-2.5 rounded-full bg-blue-600" 
-          variants={barVariants} 
-        >
-        </motion.div>
-      </div>
-    </div>
-  );
+// Varian untuk Container (Grid)
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
 };
 
+// Varian untuk setiap Card
+const cardVariants = {
+  hidden: { y: 30, opacity: 0, scale: 0.95 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
 
 const Skills = () => {
-  const mySkills = [
-    { name: 'React JS / Next.js', level: 90, type: 'Frontend' },
-    { name: 'JavaScript (ES6+)', level: 95, type: 'Frontend' },
-    { name: 'Tailwind CSS / SCSS', level: 85, type: 'Frontend' },
-    { name: 'State Management (Redux/Context)', level: 80, type: 'Frontend' },
-    { name: 'Node.js / Express JS', level: 75, type: 'Backend' },
-    { name: 'MongoDB / PostgreSQL', level: 70, type: 'Backend' },
-    { name: 'Git & GitHub', level: 90, type: 'Tools' },
-    { name: 'RESTful APIs', level: 85, type: 'Backend' },
-  ];
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.1 } }
-  };
-  
-  const frontendSkills = mySkills.filter(s => s.type === 'Frontend');
-  const backendSkills = mySkills.filter(s => s.type === 'Backend');
-  const toolSkills = mySkills.filter(s => s.type === 'Tools');
-
   return (
-    <motion.section 
-      id="skills" 
-      // Latar belakang terang
-      className="py-20 bg-gray-100 text-gray-800 border-t border-gray-200"
-      variants={sectionVariants}
+    // *****************************************************************
+    // Perubahan ID: Menggunakan id="skills" agar sesuai dengan Navbar
+    // *****************************************************************
+    <motion.section
+      id="skills"
+      className="py-24 md:py-36 bg-white"
+      variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      // Viewport amount diubah menjadi 0.1 agar animasi lebih cepat muncul
+      viewport={{ once: true, amount: 0.1 }}
     >
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold mb-12 text-gray-900 text-center">
-          <span className="text-blue-600 mr-2"></span> Kealihan
+      <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-4xl font-extrabold mb-4 text-center text-gray-900">
+          Keahlian <span className="text-blue-600">Inti</span>
         </h2>
-        
-        <div className="grid md:grid-cols-2 gap-12">
-            
-            {/* Kolom 1: Frontend & Design */}
-            <div>
-                <h3 className="text-2xl font-semibold mb-6 text-blue-600 border-b border-gray-300 pb-2">
-                    Frontend & Desain
-                </h3>
-                {frontendSkills.map((skill, index) => (
-                    <SkillProgressBar 
-                        key={index} 
-                        name={skill.name} 
-                        level={skill.level} 
-                        delay={index * 0.1} 
-                    />
-                ))}
-            </div>
-
-            {/* Kolom 2: Backend & Database */}
-            <div>
-                <h3 className="text-2xl font-semibold mb-6 text-blue-600 border-b border-gray-300 pb-2">
-                    Backend & Tools
-                </h3>
-                {[...backendSkills, ...toolSkills].map((skill, index) => (
-                    <SkillProgressBar 
-                        key={frontendSkills.length + index} 
-                        name={skill.name} 
-                        level={skill.level} 
-                        delay={frontendSkills.length * 0.1 + index * 0.1} 
-                    />
-                ))}
-            </div>
-            
-        </div>
-        
-        <p className="text-center mt-12 text-gray-600 text-sm">
-            Tingkat keahlian didasarkan pada pengalaman pribadi dan frekuensi penggunaan dalam proyek.
+        <p className="text-lg text-center text-gray-600 mb-16 max-w-xl mx-auto">
+          Saya fokus pada solusi modern dengan kode yang bersih dan praktik
+          terbaik (*best practices*) di industri.
         </p>
+
+        {/* Grid Tiga Kartu */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          // Menggunakan containerVariants lagi untuk menganimasikan grid container
+          variants={containerVariants}
+        >
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              // Styling Modern: Bayangan halus, border tipis, efek hover elegan
+              className="bg-white rounded-xl border border-gray-200 shadow-md overflow-hidden group transition duration-500 hover:shadow-2xl hover:border-blue-500"
+            >
+              {/* HEADER ICON & TITLE */}
+              <div
+                className={`p-6 ${category.bgColor} border-b border-gray-200`}
+              >
+                <category.icon size={36} className={`${category.color} mb-3`} />
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {category.title}
+                </h3>
+                <p className="text-sm text-gray-600 mt-2">
+                  {category.subtitle}
+                </p>
+              </div>
+
+              {/* KONTEN (DAFTAR SKILL) */}
+              <div className="p-6">
+                {/* Daftar Keahlian */}
+                <ul className="space-y-3 text-left">
+                  {category.skills.map((skill, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start text-base text-gray-700 font-medium group-hover:text-blue-800 transition"
+                    >
+                      {/* Ikon panah dengan warna kategori */}
+                      <ChevronRight
+                        size={18}
+                        className={`mr-2 flex-shrink-0 ${category.color} mt-0.5`}
+                      />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </motion.section>
   );

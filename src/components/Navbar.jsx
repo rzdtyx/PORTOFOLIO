@@ -43,7 +43,7 @@ const Navbar = () => {
         { label: 'Tentang', id: 'about'},
         { label: 'Keahlian', id: 'skills'},
         { label: 'Proyek', id: 'projects'},
-        { label: 'Kontak', id: 'contact'},
+        { label: 'kontak', id: 'contact'},
     ];
 
     return (
@@ -54,7 +54,7 @@ const Navbar = () => {
                 <h1 className="text-2xl font-extrabold tracking-widest uppercase">
                     <a href="#hero" className="text-gray-900 hover:text-gray-600 transition duration-300 flex items-center">
                         <CodeIcon />
-                        RezaPorto
+                        RezaAditya
                     </a>
                 </h1>
                 
